@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+require_once('config.php');
+?>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -13,6 +15,7 @@
     <link rel="stylesheet" href="sgnup.css">
     <link rel="stylesheet" href="Logo.css">
     <title>BOOKSFORME</title>
+
 </head>
 
 <body>
@@ -48,16 +51,16 @@
 
 
 
+
 <div class="signup">
     <form action="config.php" method="POST">
-    <input type="submit" name="signupbutton"><br><br>
     <h2 style="color: #fff;">Sign Up</h2>
-    <input type="text" name="FirstName" placeholder="First name"><br><br>
-    <input type="text" name="LastName" placeholder="Last name"><br><br>
-    <input type="password" name="Password" placeholder="Password"><br><br>    
-    <input type="password" name="Password1" placeholder="Confirm Password"><br><br>   
-    <input type="text" name="Email" placeholder="Email address"><br><br>  
-    
+    <input type="text" name="username" placeholder="First name"><br><br>
+    <input type="text" name="username1" placeholder="Last name"><br><br>
+    <input type="password" name="pass" placeholder="Password"><br><br>    
+    <input type="password" name="pass1" placeholder="Confirm Password"><br><br>   
+    <input type="text" name="email" placeholder="Email address"><br><br>  
+    <input type="button" value="Sign up" onclick="myFunction()"><br><br>
 
         <div id="msg">Congratulations You Sign Up successfully!!</div>
  
