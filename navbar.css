@@ -8,7 +8,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #00008B;
+    background-color: #1e2129;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -51,17 +51,17 @@ nav{
   padding: 1px;
   margin-top: 1px;
   margin-right: 16px;
-  background: #00008B;
+  background: rgb(142, 149, 165);
   font-size: 17px;
   border: none;
   cursor: pointer;
 }
 
 .nav .search-container button:hover {
-  background: #00008B;
+  background: white;
   text-decoration:underline;
-  color: rgba(255, 255, 255, 1);
- box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  color: rgb(142, 149, 165);
+ box-shadow: 0 5px 15px rgb(142, 149, 165);
 }
 
 @media screen and (max-width: 600px) {
@@ -112,7 +112,7 @@ nav{
         right: 0px;
         height: 92vh;
         top: 8vh;
-        background-color: #00008B;
+        background-color: #1e2129;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -340,63 +340,121 @@ body{
 }
 
 body{
-     background-color: #000000;
+     background-color: #1e2129;
 }
 
 
 
-*{
-    margin:0;
-    padding: 0;
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+grid-auto-rows: minmax(100px, auto);
+}
+
+
+
+.grid1{
+    grid-area: main;
+}
+.grid2{
+    grid-area: side;
+}
+.grid1 { grid-area: 1 / 1 / 2 / 5; }
+.grid2 { grid-area: 1 / 5 / 2 / 6; }
+
+
+
+
+.parent .grid1 .tabContainer{
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    
+}
+.tabContainer .buttonContainer{
+    height: 15%;
+}
+ .tabContainer .buttonContainer button{
+    width: 25%;
+    height: 50%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #1e2129;
+    color: #8e95a5;
+
+}
+.tabContainer .buttonContainer button:hover{
+    background-color: #1e2129;
+    text-decoration: underline;
+    
+}
+
+ .tabContainer .buttonContainer button.active{
+    background-color: #1e2129;
+    text-decoration: underline;
+    color: white;
+}
+
+
+ .tabContainer .tabPanel{
+    height: 600px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
     box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 25px;
+    display: none;
 }
 
 
-.grid1{
-    display:grid;
-    grid-auto-columns: 300px,300px,300px;
-    background: black;
-    color: #00008B;
+div.gallery {
+  border: 0px solid #ccc;
+  border-radius: 15px;
 }
-.grid1 img{
-    width:100%;
+
+div.gallery:hover {
+  border: 1px solid #777;
+  border-radius: 15px;
 }
-.grid2{
-    background: black;
-    color: #00008B;
+
+div.gallery img {
+  width: 168px;
+  height: 200px;
+  border-radius: 15px;
 }
-.grid3{
-    background: black;
-    color: #00008B;
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 5px;
+  float: left;
+  width: 180px;
+  height: 190px;
+  margin-top: 25px;
+  margin-bottom:25px;
+}
+
+@media only screen and (max-width: 600px){
+    .responsive{
+           width:auto;
+            margin: 0px;
+        }
 }
 
 
-main{
-    height:100vh;
-    display: grid;
-    grid-auto-columns: 1fr 1fr;
-    grid-template-areas: 1fr 1fr;
-}
-
-.grid1{
-    grid-template-columns: repeat( auto, minmax(280px,1fr));
-    grid-template-rows: repeat( auto , minmax(280px,1fr));
-    grid-column: 1/4;
-    grid-row:1/4;
-    border:2px #00008B;
-}
-.grid2{
-    grid-template-rows: repeat( auto , minmax(280px,1fr));
-    grid-row:1/5;
-    }
-.grid3{
-   
-    grid-template-columns: repeat(auto, minmax(280px,1fr));
-    grid-column:1/4;
-    border:2px #00008B;
-}
-
- .column {
+.column {
   float: left;
   width: 50%;
   padding: 10px;
@@ -411,3 +469,189 @@ main{
   clear: both;
   color: blue;
 }
+
+
+
+
+
+.relatives {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.relatives { grid-area: 1 ; }
+
+
+
+.relatives{
+    background-color: #1e2129;
+}
+
+
+
+
+.relatives  .bar{
+    height: 15%;
+}
+ .bar  button{
+    width: 25%;
+    height: 50%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #1e2129;
+    color: #8e95a5;
+
+}
+.bar  button:hover{
+    background-color: #000;
+    text-decoration: underline;
+    
+}
+
+ .bar  button.active{
+    background-color: #000;
+    text-decoration: underline;
+    color: white;
+}
+
+
+
+
+.relatives  div.gallery {
+  border: 0px solid #ccc;
+  border-radius: 15px;
+}
+
+.relatives  div.gallery:hover {
+  border: 1px solid #777;
+  border-radius: 15px;
+}
+
+.relatives  div.gallery img {
+  width: 168px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.children {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.grid4 { grid-area: 1 / 1 / 2 / 2; }
+.grid5 { grid-area: 1 / 2 / 2 / 3; }
+
+
+
+.grid4{
+    background-color: black;
+    padding: 35px;
+    padding-left: 135px;
+    
+
+}
+
+.grid4 img{
+    width:12px;
+    height:12px;
+}
+
+
+
+.grid4 a:link{
+    text-decoration: none;
+ 
+}
+
+ a:visited{
+    text-decoration: none;
+ 
+}
+
+
+a:hover{
+    text-decoration: none;
+    color:white;
+ 
+}
+
+
+
+.logo2 {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif
+}
+.grid5{
+    background-color: black;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.grid5 .columns {
+  float: left;
+  width: 33.33%;
+  padding-top:35px;
+
+}
+
+/* Clear floats after the columns */
+.grid5 .rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.columns a:link{
+    text-decoration: none;
+    color: rgb(161,161,161);
+}
+
+ a:visited{
+    text-decoration: none;
+ 
+}
+
+
+a:hover{
+    text-decoration: none;
+    color:white;
+ 
+}
+
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .grid5 .columns {
+    width: 100%;
+  }
+}
+
+

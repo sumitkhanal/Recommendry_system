@@ -54,6 +54,7 @@ require_once('config.php');
 
 <div class="signup">
     <form action="config.php" method="POST">
+        <input type="submit" name="signupbutton"><br><br>
     <h2 style="color: #fff;">Sign Up</h2>
     <input type="text" name="username" placeholder="First name"><br><br>
     <input type="text" name="username1" placeholder="Last name"><br><br>

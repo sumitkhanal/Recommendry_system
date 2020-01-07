@@ -8,7 +8,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: #00008B;
+    background-color:#1e2129;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -49,7 +49,7 @@ nav{
   padding: 1px;
   margin-top: 1px;
   margin-right: 16px;
-  background: #00008B;
+  background: rgb(142, 149, 165);
   font-size: 17px;
   border: none;
   cursor: pointer;
@@ -58,8 +58,8 @@ nav{
 .nav .search-container button:hover {
   background: #00008B;
   text-decoration:underline;
-  color: rgba(255, 255, 255, 1);
- box-shadow: 0 5px 15px rgba(145, 92, 182, .4);
+  color: rgb(142, 149, 165);
+ box-shadow: 0 5px 15px rgb(142, 149, 165);
 }
 
 @media screen and (max-width: 600px) {
@@ -107,7 +107,7 @@ nav{
         right: 0px;
         height: 92vh;
         top: 8vh;
-        background-color: #00008B;
+        background-color:#1e2129;
         display: flex;
         flex-direction: column;
         align-items: center;
