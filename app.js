@@ -151,3 +151,5 @@ function openGenre(genreName) {
   }
   document.getElementById(genreName).style.display = "block";  
 }
+
+

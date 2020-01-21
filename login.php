@@ -1,10 +1,14 @@
+$host="localhost";
+$dbname="booksforme";
+$dbuser="root";
+$dbpass=""
 
 <?php
-if(isset($_POST['loggedin'])){
-	$Email=$_POST['Email'];
-	$Password=$_POST['Password'];
+if(isset($_POST['LOGIN'])){
+	$Email=$_POST['FirstName'];
+	$Password=$_POST['LastName'];
 
-	if(!empty($Email)||!empty($Password)){
+	if(!empty($Password)||!empty($Email)){
 
 
 		if(mysqli_connect_error()){
@@ -20,23 +24,27 @@ if(isset($_POST['loggedin'])){
 
 
 			$conn = new mysqli($host,$db_user,$db_pass,$db_name);
-			// $SELECT ="SELECT Email FROM signup WHERE Email= ? LIMIT 1";
-			$SELECT="SELECT * from signup WHERE Email='".$Email."' AND Password='".$Password."' limit 1";
-
+			$SELECT = "SELECT Email FROM signup WHERE Email = '$Email' and Password = '$Password'";
+			$INSERT = "INSERT INTO signup (FirstName,LastName,Password,Email) VALUES (?,?,?,?)";
 			//prepare statement for selecr query
 			$stmt =$conn->prepare($SELECT);
-			// $stmt->bind_param("s",$Email);
+			$stmt->bind_param("s",$Email);
 			$stmt->execute();
+			$stmt->bind_result($Email);
 			$stmt->store_result();
 			$rnum=$stmt->num_rows;
 
-			if($rnum==1){
+			if($rnum==0){
 				$stmt->close();
-				echo "successfully loggedin";
+				$stmt=$conn->prepare($INSERT);
+				$stmt->bind_param("ssss",$FirstName,$LastName,$Password,$Email);
+				$stmt->execute();
+				echo "New record inserted successfully";
 				
 			}else{
-				echo "incorrect email or password";
+				echo "Someone already registered using this email";
 			}
+			$stmt->close();
 			$conn->close();
 
 			}
@@ -51,47 +59,3 @@ if(isset($_POST['loggedin'])){
 		echo"off";
 }
 ?>
-
-
-
-
-
-
-<!-- 
-
-
-
-
-
-<?php
-if(isset($_POST['loggedin'])){
-$host="localhost";
-$db_user="root";
-$db_pass="";
-$db_name="booksforme";
-
-$conn = new mysqli($host,$db_user,$db_pass,$db_name);
-
-
-if(isset($_POST['Email'])){
-	$Email=$_POST['Email'];
-	$Password=$_POST['Password'];
-
-	$SELECT="SELECT * from signup WHERE Email='".$Email."' AND Password='".$Password."' limit 1";
-			$stmt =$conn->prepare($SELECT);
-			$stmt->bind_param("s",$Email);
-			$stmt->execute();
-			$stmt->bind_result($Email);
-			$stmt->store_result();
-			$rnum=$stmt->num_rows;
-	if($rnum==1){
-		echo "You Have successfully loggend in";
-		exit();
-	}
-	else{
-			echo "you have entered incorrect password";
-			exit();
-	}
-}
-}
-?> -->

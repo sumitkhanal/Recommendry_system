@@ -23,7 +23,6 @@ if(isset($_POST['signupbutton'])){
 			$conn = new mysqli($host,$db_user,$db_pass,$db_name);
 			$SELECT ="SELECT Email FROM signup WHERE Email= ? LIMIT 1";
 			$INSERT = "INSERT INTO signup (FirstName,LastName,Password,Email) VALUES (?,?,?,?)";
-
 			//prepare statement for selecr query
 			$stmt =$conn->prepare($SELECT);
 			$stmt->bind_param("s",$Email);
@@ -37,7 +36,6 @@ if(isset($_POST['signupbutton'])){
 				$stmt=$conn->prepare($INSERT);
 				$stmt->bind_param("ssss",$FirstName,$LastName,$Password,$Email);
 				$stmt->execute();
-				$ID = "UPDATE signup SET id = id + 1 WHERE id BETWEEN 1 AND 1000";
 				echo "New record inserted successfully";
 				
 			}else{
