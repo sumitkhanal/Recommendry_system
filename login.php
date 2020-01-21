@@ -1,5 +1,6 @@
 
 <?php
+session_start();
 if(isset($_POST['loggedin'])){
 	$Email=$_POST['Email'];
 	$Password=$_POST['Password'];
@@ -32,7 +33,13 @@ if(isset($_POST['loggedin'])){
 
 			if($rnum==1){
 				$stmt->close();
-				echo "successfully loggedin";
+				$_SESSION['Email1']=$Email;
+				$id= "SELECT id from signup WHERE Email='".$Email."'";
+				$_SESSION['id1']=$id;
+				header("location:home.html");
+
+				// echo $Email;
+				// echo $id;
 				
 			}else{
 				echo "incorrect email or password";
@@ -52,46 +59,3 @@ if(isset($_POST['loggedin'])){
 }
 ?>
 
-
-
-
-
-
-<!-- 
-
-
-
-
-
-<?php
-if(isset($_POST['loggedin'])){
-$host="localhost";
-$db_user="root";
-$db_pass="";
-$db_name="booksforme";
-
-$conn = new mysqli($host,$db_user,$db_pass,$db_name);
-
-
-if(isset($_POST['Email'])){
-	$Email=$_POST['Email'];
-	$Password=$_POST['Password'];
-
-	$SELECT="SELECT * from signup WHERE Email='".$Email."' AND Password='".$Password."' limit 1";
-			$stmt =$conn->prepare($SELECT);
-			$stmt->bind_param("s",$Email);
-			$stmt->execute();
-			$stmt->bind_result($Email);
-			$stmt->store_result();
-			$rnum=$stmt->num_rows;
-	if($rnum==1){
-		echo "You Have successfully loggend in";
-		exit();
-	}
-	else{
-			echo "you have entered incorrect password";
-			exit();
-	}
-}
-}
-?> -->

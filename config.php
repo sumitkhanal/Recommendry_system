@@ -38,7 +38,7 @@ if(isset($_POST['signupbutton'])){
 				$stmt->bind_param("ssss",$FirstName,$LastName,$Password,$Email);
 				$stmt->execute();
 				$ID = "UPDATE signup SET id = id + 1 WHERE id BETWEEN 1 AND 1000";
-				echo "New record inserted successfully";
+				header("location:cong.html");
 				
 			}else{
 				echo "Someone already registered using this email";
