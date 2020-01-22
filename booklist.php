@@ -27,12 +27,12 @@ tr:nth-child(even) {background-color: #f2f2f2}
 <th>GENRE</th>
 </tr>
 <?php
-$conn = mysqli_connect("localhost", "root", "", "csv_db");
+$conn = mysqli_connect("localhost", "root", "", "books");
 // Check connection
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2";
+$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM booklist";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row

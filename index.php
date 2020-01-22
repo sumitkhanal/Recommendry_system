@@ -363,7 +363,7 @@
         <br>
 <div class="row">
   <div class="column">
-    <h3><a href="#">Action</a></h3><br>
+    <h3><a href="law.php">Action</a></h3><br>
       <h3><a href="#">Anthology</a></h3><br>
       <h3><a href="#">Drama</a></h3><br>
       <h3><a href="#">Fairy Tale</a></h3><br>

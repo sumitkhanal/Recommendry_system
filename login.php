@@ -36,7 +36,7 @@ if(isset($_POST['loggedin'])){
 				$_SESSION['Email1']=$Email;
 				$id= "SELECT id from signup WHERE Email='".$Email."'";
 				$_SESSION['id1']=$id;
-				header("location:books.php");
+				header("location:home.html");
 
 				// echo $Email;
 				// echo $id;
@@ -57,5 +57,6 @@ if(isset($_POST['loggedin'])){
 }else{
 		echo"off";
 }
+
 ?>
 
