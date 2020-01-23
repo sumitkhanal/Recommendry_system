@@ -43,7 +43,7 @@ if(isset($_POST['searchbutton'])){
     // output data of each row
     while($row = $result->fetch_assoc()) {
     echo "<tr><td>" . $row["AUTHOR"]. "</td><td>" . $row["TITLE"] . "</td><td>"
-    . $row["CATEGORY"]. "</td></tr>"<img src="Hamlet.jpg" alt="Cinque Terre" width="600" height="300px""</td></tr>">;
+    . $row["CATEGORY"]. "</td></tr>";
     }
     echo "</table>";
     }
