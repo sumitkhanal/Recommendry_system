@@ -17,19 +17,15 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
             </li>
                 <li>
                 <a href="booklist.php">BOOKLIST</a>
             </li>
               <li>
-                <a href="sgnup.html">SIGNUP</a>
-            </li>
-             <li>
-                <a href="login.html">LOGIN</a>
+                <a href="logout.php">LOG OUT</a>
             </li>
           
-      
             <li>
                <div class="search-container">
                 <form action="search.php" method="POST">
@@ -78,7 +74,7 @@ $conn = mysqli_connect("localhost", "root", "", "csv_db");
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='14'";
+$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='21'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row

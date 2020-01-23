@@ -78,7 +78,7 @@ $conn = mysqli_connect("localhost", "root", "", "csv_db");
 if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
-$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='14'";
+$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='25'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 // output data of each row

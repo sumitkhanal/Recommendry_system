@@ -1,3 +1,6 @@
+<?php
+  require_once __DIR__ . './../login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,19 +20,17 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
             </li>
             <li>
                 <a href="booklist.php">BOOKLIST</a>
             </li>
             <li>
-                <a href="sgnup.html">SIGNUP</a>
-            </li>
+                  <a href="logout.php">Log Out</a>
+                  
             <li>
-                <a href="logn.html">LOGIN</a>
-            </li>
-            <li>
-                 <div class="search-container">
+
+               <div class="search-container">
                 <form action="search.php" method="POST">
                   <input type="text" name="query"/>
                   <button><input type="submit" name="searchbutton" value="Search" /></button>
@@ -396,6 +397,7 @@
       <h3><a href="Self-Help.php">Self-Help</a></h3><br>
       <h3><a href="Teen & Young Adult.php">Teen & Young Adult</a></h3><br>
       <h3><a href="Travel.php">Travel</a></h3><br>
+  
   
   </div>
 </div>
@@ -769,7 +771,7 @@
   <div class="columns" >
    <font color="#e2e2e2"> <h3>HELP</h3><br></font>
     <p>
-      <button onclick="document.getElementById('modal-wrapper').style.display='block'" style="width:0px; margin-top:0px; margin-left:0px; margin-bottom: 0px;">
+       <button onclick="document.getElementById('modal-wrapper').style.display='block'" style="width:0px; margin-top:0px; margin-left:0px; margin-bottom: 0px;">
 Request</button>
 
 <div id="modal-wrapper" class="modal">

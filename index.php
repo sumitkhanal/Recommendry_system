@@ -20,7 +20,7 @@
                 <a href="index.html">HOME</a>
             </li>
             <li>
-                <a href="#">BOOKLIST</a>
+                <a href="booklist.php">BOOKLIST</a>
             </li>
             <li>
                 <a href="sgnup.html">SIGNUP</a>
@@ -29,10 +29,10 @@
                 <a href="logn.html">LOGIN</a>
             </li>
             <li>
-              <div class="search-container">
-                <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit">Submit</button>
+               <div class="search-container">
+                <form action="search.php" method="POST">
+                  <input type="text" name="query"/>
+                  <button><input type="submit" name="searchbutton" value="Search" /></button>
                </form>
               </div>
             </li>
@@ -363,33 +363,39 @@
         <br>
 <div class="row">
   <div class="column">
-    <h3><a href="law.php">Action</a></h3><br>
-      <h3><a href="#">Anthology</a></h3><br>
-      <h3><a href="#">Drama</a></h3><br>
-      <h3><a href="#">Fairy Tale</a></h3><br>
-      <h3><a href="#">Fiction</a></h3><br>
-      <h3><a href="#">Historical Fiction</a></h3><br>
-      <h3><a href="#">Humor</a></h3><br>
-      <h3><a href="#">Mystery</a></h3><br>
-      <h3><a href="#">Romance</a></h3><br>
-      <h3><a href="#">Psychological</a></h3><br>
-      <h3><a href="#">Short Story</a></h3><br>
-      <h3><a href="#">Supernatural</a></h3><br>
-      <h3><a href="#">Thriller</a></h3><br>
+      <h3><a href="Arts & Photography.php">Arts & Photography</a></h3><br>
+      <h3><a href="Business & Money.php">Business & Money</a></h3><br>
+      <h3><a href="Children's Books.php">Children's Books</a></h3><br>
+      <h3><a href="Computers & Technology.php">Computers & Technology</a></h3><br>
+      <h3><a href="Crafts, Hobbies & Home.php">Crafts, Hobbies & Home</a></h3><br>
+      <h3><a href="Engineering & Transportation.php">Engineering & Transportation</a></h3><br>
+      <h3><a href="History.php">History</a></h3><br>
+      <h3><a href="Law.php">Law</a></h3><br>
+      <h3><a href="Medical Books.php">Medical Books</a></h3><br>
+      <h3><a href="Parenting & Relationships.php">Parenting & Relationships</a></h3><br>
+      <h3><a href="Reference.php">Reference</a></h3><br>
+      <h3><a href="Romance.php">Romance</a></h3><br>
+      <h3><a href="Science Fiction & Fantasy.php">Science Fiction & Fantasy</a></h3><br>
+      <h3><a href="Sports & Outdoors.php">Sports & Outdoors</a></h3><br>
+      <h3><a href="Test Preparation.php">Test Preparation</a></h3><br>
+      
   </div>
   <div class="column">
-    <h3><a href="#">Adventure</a></h3><br>
-    <h3><a href="#">Autobiogrsphy</a></h3><br>
-    <h3><a href="#">Fable</a></h3><br>
-    <h3><a href="#">Fantasy</a></h3><br>
-    <h3><a href="#">Folklore</a></h3><br>
-    <h3><a href="#">Horror</a></h3><br>
-    <h3><a href="#">Legend</a></h3><br>
-    <h3><a href="#">Mythology</a></h3><br>
-    <h3><a href="#">Poetry</a></h3><br>
-    <h3><a href="#">Science Fiction</a></h3><br>
-    <h3><a href="#">Tall tale</a></h3><br>
-    <h3><a href="#">Suspense</a></h3><br>
+    <h3><a href="Biographies & Memoirs.php">Biographies & Memories</a></h3><br>
+    <h3><a href="Calendars.php">Calendars</a></h3><br>
+    <h3><a href="Comics & Graphic Novels.php">Comics & Graphic Novels</a></h3><br>
+    <h3><a href="Cookbooks, Food & Wine.php">Cookbooks, Food & Wine</a></h3><br>
+    <h3><a href="Christian Books & Bibles.php">Christian Books & Bibles</a></h3><br>
+    <h3><a href="Health, Fitness & Dieting.php">Health, Fitness & Dieting</a></h3><br>
+      <h3><a href="Humor & Entertainment.php">Humor & Entertainment</a></h3><br>
+      <h3><a href="Literature & Fiction.php">Literature & Fiction</a></h3><br>
+      <h3><a href="Mystery, Thriller & Suspense.php">Mystery, Thriller & Suspense</a></h3><br>
+      <h3><a href="Politics & Social Sciences.php">Politics & Social Sciences</a></h3><br>
+      <h3><a href="Religion & Spirituality.php">Religion & Spirituality</a></h3><br>
+      <h3><a href="Science & Math.php">Science & Math</a></h3><br>
+      <h3><a href="Self-Help.php">Self-Help</a></h3><br>
+      <h3><a href="Teen & Young Adult.php">Teen & Young Adult</a></h3><br>
+      <h3><a href="Travel.php">Travel</a></h3><br>
   
   </div>
 </div>

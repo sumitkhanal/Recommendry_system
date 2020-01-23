@@ -17,16 +17,13 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
             </li>
                 <li>
                 <a href="booklist.php">BOOKLIST</a>
             </li>
               <li>
-                <a href="sgnup.html">SIGNUP</a>
-            </li>
-             <li>
-                <a href="login.html">LOGIN</a>
+                <a href="logout.php">LOG OUT</a>
             </li>
           
       

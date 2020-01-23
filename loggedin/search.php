@@ -17,19 +17,17 @@
         </div>
         <ul class="nav">
             <li>
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
             </li>
-                <li>
+            <li>
                 <a href="booklist.php">BOOKLIST</a>
             </li>
-              <li>
-                <a href="sgnup.html">SIGNUP</a>
-            </li>
-             <li>
-                <a href="login.html">LOGIN</a>
-            </li>
-          
       
+              <li>
+                <a href="logout.php">LOG OUT</a>
+            </li>
+           
+        
             <li>
                <div class="search-container">
                 <form action="search.php" method="POST">
@@ -56,11 +54,11 @@ color: rgb(226, 226, 226);
 font-family: 'Poppins', sans-serif;
 font-size: 14px;
 text-align: left;
+margin-top:5px; 
 }
 th {
-background-color:black ;
+background-color: black;
 color: white;
-padding-top:  10px;
 }
 tr:nth-child(even) {background-color: #1e2129;}
 </style>
@@ -72,24 +70,27 @@ tr:nth-child(even) {background-color: #1e2129;}
 <th>TITLE</th>
 <th>GENRE</th>
 </tr>
+    
+
 <?php
-$conn = mysqli_connect("localhost", "root", "", "csv_db");
+if(isset($_POST['searchbutton'])){
+    $query=$_POST['query'];
+    $conn = mysqli_connect("localhost", "root", "", "csv_db");
 // Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
+    if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    }
+    $sql = "SELECT AUTHOR,TITLE,CATEGORY FROM table2 WHERE TITLE LIKE '%$query%' OR AUTHOR LIKE '%$query%'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+    echo "<tr><td>" . $row["AUTHOR"]. "</td><td>" . $row["TITLE"] . "</td><td>"
+    . $row["CATEGORY"]. "</td></tr>";
+    }
+    echo "</table>";
+    }
+    else { echo "0 results"; }
 }
-$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='14'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["AUTHOR"]. "</td><td>" . $row["TITLE"] . "</td><td>"
-. $row["CATEGORY"]. "</td></tr>";
-}
-echo "</table>";
-} else { echo "0 results"; }
 $conn->close();
 ?>
-</table>
-</body>
-</html>

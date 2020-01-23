@@ -1,0 +1,733 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    background-color: #1e2129;
+    font-family: 'Poppins', sans-serif;
+}
+
+.logo{
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    width: 40%;
+}
+.nav li{
+    list-style: none;
+}
+.nav a{
+    color: rgb(226, 226, 226);
+    text-decoration: none;
+    letter-spacing: 3px;
+    font-weight: bold;
+    font-size: 14px
+}
+
+
+.nav .search-container {
+  float: right;
+  position: absolute;
+  margin-right: 10px;
+}
+
+.nav input[type=text] {
+  margin-bottom: 0px;  
+  margin-right:0px; 
+  padding:0px;
+  margin-top: 3px;
+  font-size: 17px;
+  border: none;
+}
+
+.nav .search-container button {
+  position: relative;
+  float: right;
+  padding-bottom:0px;
+  margin-bottom:0px;
+  background: rgb(142, 149, 165);
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.nav .search-container button:hover {
+  background: white;
+  text-decoration:underline;
+  color: rgb(142, 149, 165);
+ box-shadow: 0 5px 15px rgb(142, 149, 165);
+}
+
+@media screen and (max-width: 600px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    float: none;
+    display: block;
+    text-align: left;
+    width: 40%;
+    margin: 0;
+    padding: 120px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc;  
+  }
+}
+
+
+
+
+.burger{
+    display: none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 2px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+@media screen and (max-width:1024px){
+    .nav{
+        width: 60px;
+    }
+}
+
+@media screen and (max-width:800px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav{
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: #1e2129;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 30%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav li{
+        opacity: 1;
+    }
+    .burger{
+        display: block;
+    }
+
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+}
+
+
+body{
+    
+    padding: 10px 0 0 0;
+    margin: 0;
+}
+.galleryContainer{
+    width: 100%;
+    height: 500px;
+    max-width: 1535px;
+    margin: auto;
+    user-select: none;
+    box-shadow: 0px 0px 3px 1px #00000078;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.galleryContainer .slideShowContainer{
+    width: 100%;
+    height: 90%;
+    overflow: hidden;
+    background-color: gainsboro;
+    position: relative;
+}
+.galleryContainer .slideShowContainer #playPause{
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    background-image: url(images/playPause.png);
+    background-repeat: no-repeat;
+    z-index: 5;
+    background-size: cover;
+    margin: 5px;
+    cursor: pointer;
+}
+.galleryContainer .slideShowContainer #playPause:hover{
+    opacity: .7;
+}
+.galleryContainer .slideShowContainer .imageHolder{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+.galleryContainer .slideShowContainer .imageHolder img{
+    width: 100%;
+    height: 100%;
+}
+.galleryContainer .slideShowContainer .imageHolder .captionText{
+    display: none;
+}
+
+.galleryContainer .slideShowContainer .leftArrow,.galleryContainer .slideShowContainer .rightArrow{
+    width: 50px;
+    background: #00000036;
+    position: absolute;
+    left: 0;
+    z-index: 1;
+    transition: background 0.5s;
+    height: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.galleryContainer .slideShowContainer .rightArrow{
+    left: auto;
+    right: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.galleryContainer .slideShowContainer .leftArrow:hover,.galleryContainer .slideShowContainer .rightArrow:hover{
+    background: #000000a8;
+    cursor: pointer;
+}
+.galleryContainer .arrow{
+    display: inline-block;
+    border: 3px solid white;
+    width: 10px;
+    height: 10px;
+    border-left: none;
+    border-bottom: none;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+.galleryContainer .arrow.arrowLeft{
+    transform: rotateZ(-135deg);
+}
+.galleryContainer .arrow.arrowRight{
+    transform: rotateZ(45deg);
+}
+
+
+.galleryContainer .slideShowContainer>.captionTextHolder{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
+    color: white;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+    background: #00000047;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+}
+.galleryContainer .slideShowContainer>.captionTextHolder>.captionText{
+    margin: 0;
+}
+
+.galleryContainer #dotsContainer{
+    width: 100%;
+    height: 10%;
+    text-align: center;
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+.galleryContainer #dotsContainer .dots{
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: #bbb;
+    cursor: pointer;
+    transition:background-color 0.5s;
+}
+.galleryContainer #dotsContainer .dots:first-child{
+    margin-left: 0;
+}
+.galleryContainer #dotsContainer .dots:hover,.galleryContainer #dotsContainer .dots.active{
+    background-color: #717171;;
+}
+
+
+
+
+.galleryContainer .moveLeftCurrentSlide{
+    animation-name: moveLeftCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+
+}
+.galleryContainer .moveLeftNextSlide{
+    animation-name: moveLeftNext;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveLeftCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: -100%;opacity: 1;}
+}
+@keyframes moveLeftNext {
+    from {margin-left: 100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+
+
+.galleryContainer .moveRightCurrentSlide{
+    animation-name: moveRightCurrent;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+.galleryContainer .moveRightPrevSlide{
+    animation-name: moveRightPrev;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+}
+@keyframes moveRightCurrent {
+    from {margin-left: 0;opacity: 1;}
+    to {margin-left: 100%;opacity: 1;}
+}
+@keyframes moveRightPrev {
+    from {margin-left: -100%;opacity: 1;}
+    to {margin-left: 0%;opacity: 1;}
+}
+.slideTextFromBottom {
+    animation-name: slideTextFromBottom;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+}
+@keyframes slideTextFromBottom {
+    from {opacity: 0;margin-top: 100px}
+    to {opacity: 1;margin-top: 0px;}
+}
+.slideTextFromTop {
+    animation-name: slideTextFromTop;
+    animation-duration: 0.7s;
+    animation-timing-function: ease-out;
+}
+@keyframes slideTextFromTop {
+    from {opacity: 0;margin-top: -100px}
+    to {opacity: 1;margin-top: 0px;}
+}
+
+body{
+     background-color: #1e2129;
+}
+
+
+
+.parent {
+display: grid;
+grid-template-columns: repeat(5, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+grid-auto-rows: minmax(100px, auto);
+}
+
+
+
+.grid1{
+    grid-area: main;
+}
+.grid2{
+    grid-area: side;
+}
+.grid1 { grid-area: 1 / 1 / 2 / 5; }
+.grid2 { grid-area: 1 / 5 / 2 / 6; }
+
+
+
+
+.parent .grid1 .tabContainer{
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    
+}
+.tabContainer .buttonContainer{
+    height: 15%;
+}
+ .tabContainer .buttonContainer button{
+    width: 25%;
+    height: 50%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #1e2129;
+    color: #8e95a5;
+
+}
+.tabContainer .buttonContainer button:hover{
+    background-color: #1e2129;
+    text-decoration: underline;
+    
+}
+
+ .tabContainer .buttonContainer button.active{
+    background-color: #1e2129;
+    text-decoration: underline;
+    color: white;
+}
+
+
+ .tabContainer .tabPanel{
+    height: 600px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding-top: 5px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-size: 25px;
+    display: none;
+}
+
+
+div.gallery {
+  border: 0px solid #ccc;
+  border-radius: 15px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+  border-radius: 15px;
+}
+
+div.gallery img {
+  width: 168px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.responsive {
+  padding: 5px;
+  float: left;
+  width: 180px;
+  height: 190px;
+  margin-top: 25px;
+  margin-bottom:25px;
+}
+
+@media only screen and (max-width: 600px){
+    .responsive{
+           width:auto;
+            margin: 0px;
+        }
+}
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+  color: blue;
+}
+
+/* Clear floats after the columns */
+ .row:after {
+  content: "";
+  display: table;
+  clear: both;
+  color: blue;
+}
+
+
+
+
+
+.relatives {
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.relatives { grid-area: 1 ; }
+
+
+
+.relatives{
+    background-color: #1e2129;
+}
+
+
+
+
+.relatives  .bar{
+    height: 15%;
+}
+ .bar  button{
+    width: 25%;
+    height: 50%;
+    float: left;
+    border: none;
+    outline:none;
+    cursor: pointer;
+    padding: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+    background-color: #1e2129;
+    color: #8e95a5;
+
+}
+.bar  button:hover{
+    background-color: #000;
+    text-decoration: underline;
+    
+}
+
+ .bar  button.active{
+    background-color: #000;
+    text-decoration: underline;
+    color: white;
+}
+
+
+
+
+.relatives  div.gallery {
+  border: 0px solid #ccc;
+  border-radius: 15px;
+}
+
+.relatives  div.gallery:hover {
+  border: 1px solid #777;
+  border-radius: 15px;
+}
+
+.relatives  div.gallery img {
+  width: 168px;
+  height: 200px;
+  border-radius: 15px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.children {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+
+.grid4 { grid-area: 1 / 1 / 2 / 2; }
+.grid5 { grid-area: 1 / 2 / 2 / 3; }
+
+
+
+.grid4{
+    background-color: black;
+    padding: 35px;
+    padding-left: 135px;
+    
+
+}
+
+.grid4 img{
+    width:12px;
+    height:12px;
+}
+
+
+
+.grid4 a:link{
+    text-decoration: none;
+ 
+}
+
+ a:visited{
+    text-decoration: none;
+ 
+}
+
+
+a:hover{
+    text-decoration: none;
+    color:white;
+ 
+}
+
+
+
+.logo2 {
+    color: rgb(226, 226, 226);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif
+}
+.grid5{
+    background-color: black;
+}
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create three equal columns that floats next to each other */
+.grid5 .columns {
+  float: left;
+  width: 33.33%;
+  padding-top:35px;
+
+}
+
+/* Clear floats after the columns */
+.grid5 .rows:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.columns a:link{
+    text-decoration: none;
+    color: rgb(161,161,161);
+}
+
+ a:visited{
+    text-decoration: none;
+ 
+}
+
+
+a:hover{
+    text-decoration: none;
+    color:white;
+ 
+}
+
+
+
+.grid5 input[type=text], input[type=email], textarea[name=msg] {
+    width: 100%;
+    padding: 0px 20px;
+    margin-left: 0px;
+    margin-bottom: 15px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size:16px;
+}
+
+
+
+
+
+
+.grid5 .columns  .sub-btn {
+    color: rgb(161,161,161) ;
+    padding:5px;
+    margin-left:0px;
+    margin-top:0px;
+    border: 0px;
+    cursor: pointer;
+    width:100%;
+    font-size:14px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(#dc143c,#800000);
+}
+
+
+.grid5 .columns button{
+    color:white;
+    background-color:rgb(161,161,161);
+    border:0px;
+    cursor: pointer;
+    margin-bottom:0px;
+    height:0px;
+}
+
+/* The Modal (background) */
+.modal  {
+    margin-left: 600px;
+    margin-top: 100px;
+    color:rgb(161,161,161);
+    display:none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 20%;
+    height: 50%;
+    overflow: auto;
+    background-color:rgba(0,0,0,0.8);
+}
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .grid5 .columns {
+    width: 100%;
+  }
+}
+
+
