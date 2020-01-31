@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@
 </head>
 
 <body> 
-    <nav>
+<nav>
         <div class="logo">
             <h4>BOOKSFORME</h4>
         </div>
@@ -28,9 +31,9 @@
             <li>
                 <a href="logn.html">LOGIN</a>
             </li>
-            <li>
-               <div class="search-container">
-                <form action="search.php" method="POST">
+        <li>
+                 <div class="search-container">
+                <form action="searching.php" method="POST">
                   <input type="text" name="query"/>
                   <button><input type="submit" name="searchbutton" value="Search" /></button>
                </form>
@@ -93,120 +96,14 @@
 
 <div class="responsive">
   <div class="gallery">
-    <a href="iframe.php">
-      <img src="magician.jpg" alt="Cinque Terre" width="600" height="300px">
+   <?php
+   echo $output;
+   ?>
     </a>
   </div>
 </div>
 
 
-    
-<div class="responsive">
-  <div class="gallery">
-    <a href="hamlet.php">
-      <img src="Hamlet.jpg" alt="Cinque Terre" width="600" height="300px">
-    </a>
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a href="#">
-      <img src="tokillamockingbird.jpg" alt="Cinque Terre" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a href="#">
-      <img src="1984.jpg" alt="Cinque Terre" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a href="#">
-      <img src="thelordoftherings.jpg" alt="Cinque Terre" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a href="#">
-      <img src="thecatcherintherye.jpg" alt="Forest" width="600" height="400">
-    </a>
-   
-  </div>
-</div>
-
-<div class="responsive">
-  <div class="gallery">
-    <a href="#">
-      <img src="thegreatgatsby.jpg" alt="Northern Lights" width="600" height="400">
-    </a>
-  
-  </div>
-</div>
-
-<div class="responsive">
-  <div class="gallery">
-    <a  href="#">
-      <img src="thelionthewitchthewardrobe.jpg" alt="Mountains" width="600" height="400">
-    </a>
- </div>
-</div>
-
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a  href="#">
-      <img src="lordoftheflies.jpg" alt="Mountains" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-<div class="responsive">
-  <div class="gallery">
-    <a  href="#">
-      <img src="animalfarm.jpg" alt="Mountains" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a  href="#">
-      <img src="catch22.jpg" alt="Mountains" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
-
-
-
-<div class="responsive">
-  <div class="gallery">
-    <a  href="#">
-      <img src="thegrapesofwrath.jpg" alt="Mountains" width="600" height="400">
-    </a>
- 
-  </div>
-</div>
 
 
 
@@ -219,6 +116,7 @@
   <div class="gallery">
     <a href="#">
       <img src="a5.jpg" alt="Cinque Terre" width="600" height="400">
+       <button><input type="submit" name="searchbutton" value="Search" /></button>
     </a>
  
   </div>
@@ -345,6 +243,7 @@
   <div class="gallery">
     <a  href="#">
       <img src="a4.jpg" alt="Mountains" width="600" height="400">
+       <button><input type="submit" name="searchbutton" value="Search" /></button>
     </a>
     </div>
 </div>
@@ -354,7 +253,6 @@
     <div class="tabPanel">Most Famous</div>
     <div class="tabPanel">Children</div>
   </div>
-
 </div>
 
 
@@ -363,7 +261,7 @@
         <br>
 <div class="row">
   <div class="column">
-      <h3><a href="Arts & Photography.php">Arts & Photography</a></h3><br>
+    <h3><a href="Arts & Photography.php">Arts & Photography</a></h3><br>
       <h3><a href="Business & Money.php">Business & Money</a></h3><br>
       <h3><a href="Children's Books.php">Children's Books</a></h3><br>
       <h3><a href="Computers & Technology.php">Computers & Technology</a></h3><br>
@@ -743,11 +641,11 @@
 <div class="rows">
   <div class="columns" >
    <font color="#e2e2e2"> <h3>Books</h3><br></font>
-    <p><a href="#">Action</a><br><br>
-      <a href="#">Adventure</a><br><br>
-      <a href="#">Thriller</a><br><br>
-      <a href="#">Sci-fi</a><br><br>
-      <a href="#">Top IMDb</a><br><br>
+    <p><a href="Arts & Photography.php">Arts & Photography</a><br><br>
+      <a href="Comics & Graphic Novels.php">Comics & Graphic Novels</a><br><br>
+      <a href="Literature & Fiction.php">Literature & Fiction</a><br><br>
+      <a href="Science Fiction & Fantasy.php">Sci-fi</a><br><br>
+      <a href="Medical Books.php">Medical Books</a><br><br>
  </p>
 
 
@@ -769,9 +667,32 @@
   <div class="columns" >
    <font color="#e2e2e2"> <h3>HELP</h3><br></font>
     <p>
-      <a href="#">Request</a><br><br>
-      <a href="#">Policy</a><br><br>
-      <a href="#">Contact</a><br><br>
+      <button onclick="document.getElementById('modal-wrapper').style.display='block'" style="width:0px; margin-top:0px; margin-left:0px; margin-bottom: 0px;">
+Request</button>
+
+<div id="modal-wrapper" class="modal">
+ <form action="request.php" method="post" name="form" class="form-box">
+  
+    <div class="requestcontainer">
+      <span onclick="document.getElementById('modal-wrapper').style.display='none'" class="close" title="Close Request">&times;</span>
+      <h1 style="text-align:center">Request Books</h1><br><br>
+    </div>
+    <form class="modal-content animate" action="/action_page.php">
+    <div class="container">
+      <label for="name">Name</label><br>
+      <input type="text" name="name" class="inp" placeholder="Enter Book Name" required><br><br>
+      <label for="email">Email ID</label><br>
+      <input type="email" name="email" class="inp" placeholder="Enter Your Email" required><br><br>
+      <label for="message">Message</label><br>
+      <textarea name="msg" class="msg-box" placeholder="Describe about your book eg-Release date" required></textarea><br><br>
+      <input type="submit" name="submit" value="Send" class="sub-btn">
+    </div>
+    </form>
+</form>
+</div>
+<br><br>
+      <a href="#">Policy</a><br><br><br>
+      <a href="contactus.html">Contact us</a><br><br><br>
       <a href="#">About us</a><br><br>
 
     </p>

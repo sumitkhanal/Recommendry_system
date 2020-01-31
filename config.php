@@ -16,7 +16,7 @@ if(isset($_POST['signupbutton'])){
 			$host="localhost";
 			$db_user="root";
 			$db_pass="";
-			$db_name="booksforme";
+			$db_name="csv_db";
 	//connection creation
 
 
@@ -38,6 +38,13 @@ if(isset($_POST['signupbutton'])){
 				$stmt->bind_param("ssss",$FirstName,$LastName,$Password,$Email);
 				$stmt->execute();
 				$ID = "UPDATE signup SET id = id + 1 WHERE id BETWEEN 1 AND 1000";
+								$sql="CREATE TABLE ".$Email." (userid INT NOT NULL AUTO_INCREMENT,
+					BOOKTITLE VARCHAR(32),
+					BOOKAUTHOR VARCHAR(32),
+					PRIMARY KEY(userid))
+					";
+				$result=mysqli_query($conn,$sql) or die("BAD CREATE:$sql");
+				header("location:cong.html");
 				header("location:cong.html");
 				
 			}else{

@@ -16,7 +16,7 @@ if(isset($_POST['loggedin'])){
 			$host="localhost";
 			$db_user="root";
 			$db_pass="";
-			$db_name="booksforme";
+			$db_name="csv_db";
 	//connection creation
 
 
@@ -33,9 +33,9 @@ if(isset($_POST['loggedin'])){
 
 			if($rnum==1){
 				$stmt->close();
-				$_SESSION['Email1']=$Email;
+				$_SESSION['Email']=$Email;
 				$id= "SELECT id from signup WHERE Email='".$Email."'";
-				$_SESSION['id1']=$id;
+				$_SESSION['id']=$id;
 				header("location:loggedin/home.html");
 
 				// echo $Email;

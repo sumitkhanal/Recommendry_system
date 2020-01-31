@@ -7,32 +7,31 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="Logo.css">
-    <title>BOOKSFORME</title>
-</head>
+    <script src="jquery.js"></script>
+  <script src="bootstrap.js"></script>
+ 
+<title>booklist</title>
 
-<body> 
+ </head>
+ <body>
     <nav>
         <div class="logo">
             <h4>BOOKSFORME</h4>
         </div>
         <ul class="nav">
             <li>
-                <a href="index.html">HOME</a>
+                <a href="home.html">HOME</a>
             </li>
-                <li>
+            <li>
                 <a href="booklist.php">BOOKLIST</a>
             </li>
-              <li>
-                <a href="sgnup.html">SIGNUP</a>
-            </li>
-             <li>
-                <a href="login.html">LOGIN</a>
-            </li>
-          
-      
             <li>
-               <div class="search-container">
-                <form action="search.php" method="POST">
+                <a href="logout.php">LOG OUT</a>
+            </li>
+           
+        <li>
+                 <div class="search-container">
+                <form action="searching.php" method="POST">
                   <input type="text" name="query"/>
                   <button><input type="submit" name="searchbutton" value="Search" /></button>
                </form>
@@ -46,50 +45,84 @@
             <div class="line3"></div>
         </div>
     </nav>
-
-
-<style>
-table {
-border-collapse: collapse;
-width: 100%;
-color: rgb(226, 226, 226);
-font-family: 'Poppins', sans-serif;
-font-size: 14px;
-text-align: left;
-}
-th {
-background-color:black ;
-color: white;
-padding-top:  10px;
-}
-tr:nth-child(even) {background-color: #1e2129;}
-</style>
-</head>
-<body>
-<table>
-<tr>
-<th>AUTHOR</th>
-<th>TITLE</th>
-<th>GENRE</th>
-</tr>
-<?php
-$conn = mysqli_connect("localhost", "root", "", "csv_db");
-// Check connection
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-}
-$sql = "SELECT AUTHOR, TITLE,CATEGORY FROM table2 where CATEGORYID='11'";
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-// output data of each row
-while($row = $result->fetch_assoc()) {
-echo "<tr><td>" . $row["AUTHOR"]. "</td><td>" . $row["TITLE"] . "</td><td>"
-. $row["CATEGORY"]. "</td></tr>";
-}
-echo "</table>";
-} else { echo "0 results"; }
-$conn->close();
-?>
-</table>
-</body>
+  <div class="containering" style="width:800px;">
+   <br />
+   <span id="business_list"></span>
+   <br />
+   <br />
+  </div>
+ </body>
 </html>
+
+<script>
+$(document).ready(function(){
+ 
+ load_business_data();
+ 
+ function load_business_data()
+ {
+  $.ajax({
+   url:"healthfetch.php",
+   method:"POST",
+   success:function(data)
+   {
+    $('#business_list').html(data);
+   }
+  });
+ }
+ 
+ $(document).on('mouseenter', '.rating', function(){
+  var index = $(this).data("index");
+  var business_id = $(this).data('business_id');
+  remove_background(business_id);
+  for(var count = 1; count<=index; count++)
+  {
+   $('#'+business_id+'-'+count).css('color', '#ffcc00');
+  }
+ });
+ 
+ function remove_background(business_id)
+ {
+  for(var count = 1; count <= 5; count++)
+  {
+   $('#'+business_id+'-'+count).css('color', '#ccc');
+  }
+ }
+ 
+ $(document).on('mouseleave', '.rating', function(){
+  var index = $(this).data("index");
+  var business_id = $(this).data('business_id');
+  var rating = $(this).data("rating");
+  remove_background(business_id);
+  //alert(rating);
+  for(var count = 1; count<=rating; count++)
+  {
+   $('#'+business_id+'-'+count).css('color', '#ffcc00');
+  }
+ });
+ 
+ $(document).on('click', '.rating', function(){
+  var index = $(this).data("index");
+  var business_id = $(this).data('business_id');
+  $.ajax({
+   url:"insert_rating.php",
+   method:"POST",
+   data:{index:index, business_id:business_id},
+   success:function(data)
+   {
+    if(data == 'done')
+    {
+     load_business_data();
+     alert("You have rate "+index +" out of 5");
+    }
+    else
+    {
+     alert("There is some problem in System");
+    }
+   }
+  });
+  
+ });
+
+});
+</script>
